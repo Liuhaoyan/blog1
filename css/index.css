@@ -80,6 +80,40 @@
 	font-size: 18px;
 
 }
+.responsive-header{
+	background:#5f6d7e;
+	text-align: center;
+}
+@media screen and (max-width:992px){
+	.responsive-header{
+		margin-top: 10px;
+		display:none ;
+	}
+}
+@media screen and (max-width:992px){
+	.responsive-header p{
+		color: #fff;
+	}
+}
+
+@media screen and (max-width:992px){
+	.responsive-header{
+		float: left;
+		width:100px;
+		height:100px;
+		-webkit-border-radius: 50px;
+		border-radius: 50px;
+		overflow: hidden;
+		margin-right: 30px;
+	}
+	.responsive-header {
+		text-align: center;
+		margin-top: 30px;
+		overflow: hidden;
+	}
+}
+
+
 /****上半部分结束***************/
 /****下半部分开始***************/
 .main-navigation{
@@ -116,7 +150,7 @@
 	width: 100%;
 	display: block;
 	padding: 20px;
-	margin:-top:30px;
+	margin-top:30px;
 	background:#6cc0f7;
 	color: #fff;
 	font-size: 18px; 
@@ -218,7 +252,7 @@
 		width: 70%;
 	}
 }
-@media screen and (max-width: :992px){
+@media screen and (max-width :992px){
 	.main-content,.banner-bg{
 		width: 100%;
 	}
@@ -276,9 +310,9 @@
 	height: 100%;
 	top: 40px;
 	left: 0;
-	background: rgb(0,0,0,0.9);
+	background: rgb(0,0,0.9);
 	opacity: 0;
-	visibility: 0;
+	visibility: hidden;
 	-webkit-transition:all 200ms linear;
 	-moz-transition:all 200ms linear;
 	-ms-transition:all 200ms linear;
@@ -310,7 +344,6 @@ h4.widget-title{
 .project-hover p{
 	color: #fff;
 	font-size: 13px;
-	line-height: 
 }
 /*********project结束************/
 /*********titles开始************/
