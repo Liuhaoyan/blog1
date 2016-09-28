@@ -25,6 +25,26 @@ body{
 	height: 100%;
 	position:relative;
 }
+body {
+	font-size: 14px;
+	line-height: 24px;
+	color: #777777;
+	font-family: 'robotoregular';
+	overflow-x: hidden;
+}
+
+a {
+	color: #006699;
+	-webkit-transition: all 150ms ease-in-out;
+	-moz-transition: all 150ms ease-in-out;
+	-ms-transition: all 150ms ease-in-out;
+	-o-transition: all 150ms ease-in-out;
+	transition: all 150ms ease-in-out;
+	text-decoration: none !important;
+}
+a:hover {
+	color: #555555;
+}
 hr {
 	position: relative;
 	outline: 0;
