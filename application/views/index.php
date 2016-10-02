@@ -1,12 +1,17 @@
+<?php
+    $this->load->helper("url");
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css"  href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo  base_url();?>css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo  base_url();?>css/index.css">
+    <link rel="stylesheet" type="text/css"  href="<?php echo  base_url();?>css/bootstrap.min.css">
+<!--    <link rel="stylesheet" type="text/css"  href="--><?php //echo  base_url();?><!--css/templatemo-style.css">-->
     <base href="<?php echo site_url();?>">
     <script>
         window.addEventListener("load",function(){
@@ -19,7 +24,33 @@
     </script>
 </head>
 <body>
-<div class ="sidebar-menu">
+<div class="responsive-header visible-xs visible-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-section">
+                    <div class="profile-image">
+                        <img src="img/7.jpg" alt="Volton">
+                    </div>
+                    <div class="profile-content">
+                        <h3 class="profile-title">Volton</h3>
+                        <p class="profile-description">Pro Photography</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+        <div class="main-navigation responsive-menu">
+            <ul class="navigation">
+                <li><a href="#top"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="#about"><i class="fa fa-user"></i>About Me</a></li>
+                <li><a href="#projects"><i class="fa fa-newspaper-o"></i>My Gallery</a></li>
+                <li><a href="#contact"><i class="fa fa-envelope"></i>Contact Me</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class ="sidebar-menu hidden-xs hidden-sm">
     <div class="top-section">
         <div class="profile-image">
             <img src="img/7.jpg">
@@ -36,13 +67,10 @@
                 <a href="#top" class="active"><i class="fa fa-globe"></i>welcome</a>
             </li>
             <li>
-                <a href="#skill"><i class="fa fa-pencil"></i>skills</a>
+                <a href="#about"><i class="fa fa-pencil"></i>skills</a>
             </li>
             <li>
-                <a href="#project"><i class="fa fa-paperclip"></i>projects</a>
-            </li>
-            <li>
-                <a href="#title"><i class="fa fa-link"></i>titles</a>
+                <a href="#projects"><i class="fa fa-paperclip"></i>projects</a>
             </li>
             <li>
                 <a href="#contact"><i class="fa fa-link"></i>contact me</a>
@@ -98,8 +126,8 @@
         <div class="content-wrapper">
 
             <!-- skills -->
-            <div class=" skills-content" id="skills">
-                <div class="text-stitle">
+            <div class=" skills-content" id="about">
+                <div class="text-title">
                     <div>skills</div>
                 </div>
                 <span class="learn-skills">JS:</span>
@@ -137,7 +165,7 @@
             </div>
             <hr>
             <!--skills end-->
-
+            
             <!-- project -->
             <div class="page-section" id="projects">
                 <div class="row">
@@ -146,99 +174,119 @@
                         <p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Maecenas et lorem molestie, maximus justo dignissim, cursus nisl. Nullam at ante quis ex pharetra pulvinar quis id dolor. Integer lorem odio, euismod ut sem sit amet, imperdiet condimentum diam.</p>
                     </div>
                 </div>
-                <div class="row projects-holder">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="project-item">
-                            <img src="img/1.jpg" alt="">
-                            <div class="project-hover">
-                                <div class="inside">
-                                    <h5><a href="#">Pellentesque porta ligula</a></h5>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                xinjiade 新加的-->
+<!--                <ul class="blog-cate">-->
+<!--                    <li><a href="#" class="default">ALL</a></li>-->
+<!--                    --><?php
+//                    foreach($categories as $cate){
+//                       ?>
+<!--                        <li><a href="#">--><?php //echo $category->cate_name;?><!--</li>-->
+<!--                    --><?php
+//                    }
+//                    ?>
+<!--                    <li><a href="#">Web</a></li>-->
+<!--                    <li><a href="#" >Mobile</a></li>-->
+<!--                </ul>-->
+<!--                xinjiadejieshu新加的结束-->
 
-                    <div class="col-md-4 col-sm-6">
-                        <div class="project-item">
-                            <img src="img/2.jpg" alt="">
-                            <div class="project-hover">
-                                <div class="inside">
-                                    <h5>
-                                        <a href="#">Pellentesque porta ligula</a>
-                                    </h5>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</
-                                    </p>
+                <div class="row projects-holder">
+                    <?php
+                        foreach($blogs as $blog) {
+                            ?>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="project-item">
+                                    <img src="<?php echo $blog->img;?>" alt="">
+                                    <div class="project-hover">
+                                        <div class="inside">
+                                            <h5><a href="#">Pellentesque porta ligula</a></h5>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                                cursus</p>
+                                        </div>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <p class="blog-title"><?php echo $blog->title;?></p>
+                                        <span class="blog-clicked"><?php echo $blog->cliked;?></span>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="project-item">
-                            <img src="img/3.jpg" alt="">
-                            <div class="project-hover">
-                                <div class="inside">
-                                    <h5>
-                                        <a href="#">Pellentesque porta ligula</a>
-                                    </h5>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="project-item">
-                            <img src="img/4.jpg" alt="">
-                            <div class="project-hover">
-                                <div class="inside">
-                                    <h5>
-                                        <a href="#">Pellentesque porta ligula</a>
-                                    </h5>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="project-item">
-                            <img src="img/5.jpg" alt="">
-                            <div class="project-hover">
-                                <div class="inside">
-                                    <h5>
-                                        <a href="#">Pellentesque porta ligula</a>
-                                    </h5>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="project-item">
-                            <img src="img/6.jpg" alt="">
-                            <div class="project-hover">
-                                <div class="inside">
-                                    <h5>
-                                        <a href="#">Pellentesque porta ligula</a>
-                                    </h5>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <!-- projects ends -->
+                            <?php
+                        }
+                    ?>
+<!--                 </div>-->
+<!--                <div class="row projects-holder">-->
+<!--                    <div class="col-md-4 col-sm-6">-->
+<!--                        <div class="project-item">-->
+<!--                            <img src="img/1.jpg" alt="">-->
+<!---->
+<!--                            <div class="project-hover">-->
+<!--                                <div class="inside">-->
+<!--                                    <h5><a href="#">Pellentesque porta ligula</a></h5>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4 col-sm-6">-->
+<!--                        <div class="project-item">-->
+<!--                            <img src="img/2.jpg" alt="">-->
+<!--                            <div class="project-hover">-->
+<!--                                <div class="inside">-->
+<!--                                    <h5><a href="#">Pellentesque porta ligula</a></h5>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4 col-sm-6">-->
+<!--                        <div class="project-item">-->
+<!--                            <img src="img/3.jpg" alt="">-->
+<!--                            <div class="project-hover">-->
+<!--                                <div class="inside">-->
+<!--                                    <h5><a href="#">Pellentesque porta ligula</a></h5>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4 col-sm-6">-->
+<!--                        <div class="project-item">-->
+<!--                            <img src="img/4.jpg" alt="">-->
+<!--                            <div class="project-hover">-->
+<!--                                <div class="inside">-->
+<!--                                    <h5><a href="#">Pellentesque porta ligula</a></h5>-->
+<!--                                    <p>Quisque mattis sit amet dolor eu scelerisque. Vivamus bibendum massa et nisl tempus commodo.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4 col-sm-6">-->
+<!--                        <div class="project-item">-->
+<!--                            <img src="img/5.jpg" alt="">-->
+<!--                            <div class="project-hover">-->
+<!--                                <div class="inside">-->
+<!--                                    <h5><a href="#">Pellentesque porta ligula</a></h5>-->
+<!--                                    <p>Quisque mattis sit amet dolor eu scelerisque. Vivamus bibendum massa et nisl tempus commodo.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4 col-sm-6">-->
+<!--                        <div class="project-item">-->
+<!--                            <img src="img/6.jpg" alt="">-->
+<!--                            <div class="project-hover">-->
+<!--                                <div class="inside">-->
+<!--                                    <h5><a href="#">Pellentesque porta ligula</a></h5>-->
+<!--                                    <p>Quisque mattis sit amet dolor eu scelerisque. Vivamus bibendum massa et nisl tempus commodo.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <hr>
+
+            <!-- projects ends -->
 
                 <!--  titles -->
 
@@ -261,7 +309,7 @@
                                 <input type="text" id="email" placeholder="Your Email...">
                             </fieldset>
                             <fieldset class="col-md-4 col-sn-12">
-                                <input type="text" id="your-subject" placeholder="Subject..."></input>
+                                <input type="text" id="your-subject" placeholder="Subject...">
                             </fieldset>
                             <fieldset class="col-md-12 col-sm-12">
                                 <textarea name="message" id="message" rows="6" placeholder="Leave your message..."></textarea>
@@ -280,12 +328,11 @@
     <div class="footer">
         <div></div>
     </div>
-    <script src="js/jquery-1.12.4.min.js"></script>
-<script>
-    $(function(){
-
-    });
-</script>
+    <script type="text/javascript" src="<?php echo base_url();?>js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>js/bootstrap.js"></script>
+    <script type="text/javascript"  src="<?php echo base_url();?>js/modernizr-2.6.2.min.js"></script>
+    <script  type="text/javascript" src="<?php echo base_url();?>js/index.js"></script>
+    <script type="text/javascript"  src="<?php echo base_url();?>main.js"></script>
 
 </body>
 </html>
